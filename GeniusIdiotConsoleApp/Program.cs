@@ -4,42 +4,35 @@
     {
         static void Main(string[] args)
         {
-            string[] questions = GetQuestions();
-            int[] answers = GetAnswers();
-            int correctAnswersCount = RunQuiz(questions, answers);
+            var quizData = InitQuizData();
+            int correctAnswersCount = RunQuiz(quizData);
             Console.WriteLine($"Количество правильных ответов: {correctAnswersCount}");
         }
 
-        private static int RunQuiz(string[] questions, int[] answers)
+        private static (string Question, int Answer)[] InitQuizData()
+        {
+            var quizData = new (string Question, int Answer)[]
+            {
+                ("Сколько будет 2 плюс 2, умноженное на 2?", 6),
+                ("Бревно нужно распилить на 10 частей. Сколько надо сделать распилов?", 9),
+                ("На двух руках 10 пальцев. Сколько пальцев на 5 руках?", 25),
+                ("Укол делают каждые полчаса. Сколько нужно минут для трех уколов?", 60),
+                ("5 свечей горело, 2 потухли. Сколько свечей осталось?", 2)
+            };
+            return quizData;
+        }
+
+        private static int RunQuiz((string Question, int Answer)[] quizData)
         {
             int correctAnswersCount = 0;
-            for (int i = 0; i < questions.Length; i++)
+            foreach (var quiz in quizData)
             {
-                Console.WriteLine(questions[i]);
+                Console.WriteLine(quiz.Question);
                 Console.Write("Ваш ответ: ");
                 int userAnswer = int.Parse(Console.ReadLine());
-                if (userAnswer == answers[i]) correctAnswersCount++;
+                if (userAnswer == quiz.Answer) correctAnswersCount++;
             }
             return correctAnswersCount;
-        }
-
-        private static int[] GetAnswers()
-        {
-            int[] answers = [6, 9, 25, 60, 2];
-            return answers;
-        }
-
-        private static string[] GetQuestions()
-        {
-            string[] questions =
-            [
-                "Сколько будет 2 плюс 2, умноженное на 2?",
-                "Бревно нужно распилить на 10 частей. Сколько надо сделать распилов?",
-                "На двух руках 10 пальцев. Сколько пальцев на 5 руках?",
-                "Укол делают каждые полчаса. Сколько нужно минут для трех уколов?",
-                "5 свечей горело, 2 потухли. Сколько свечей осталось?",
-            ];
-            return questions;
         }
     }
 }
