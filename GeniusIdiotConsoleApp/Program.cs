@@ -5,28 +5,53 @@
         static void Main(string[] args)
         {
             var userName = GetUserName();
-            var quizData = GetRandomizedQuizData();
-            int correctAnswersCount = RunQuiz(quizData, userName);
-            Console.WriteLine($"Результат викторины:\n{GetQuizResult(correctAnswersCount, userName)}");
+            do
+            {
+                var quizData = GetRandomizedQuizData();
+                int correctAnswersCount = RunQuiz(quizData, userName);
+                ShowQuizResults(correctAnswersCount, userName);
+            } while (AskToPlayAgain());
+            Console.WriteLine($"\n{userName}, cпасибо за игру!");
+        }
+
+        private static void ShowQuizResults(int correctAnswersCount, string userName)
+        {
+            Console.WriteLine($"\nРезультат викторины:\n{GetQuizResult(correctAnswersCount, userName)}");
+        }
+
+        private static bool AskToPlayAgain()//Вопрос о новой игре
+        {
+            while (true)
+            {
+                Console.WriteLine($"Вы желаете сыграть ещё раз?");
+                Console.WriteLine("Введите 'да' или 'нет'");
+                Console.Write("Ваш ответ: ");
+                var answer = Console.ReadLine().ToLower().Trim();
+                if (answer == "да") return true;
+                if (answer == "нет") return false;
+                Console.WriteLine("\nЯ не понял ваш ответ. Пожалуйста, введите 'да' или 'нет'.");
+            }
         }
 
         private static string GetUserName()//Запрос имени пользователя
         {
             Console.WriteLine("Приветствую! Введите, пожалуйста, Ваше имя");
+            Console.Write("Меня зовут: ");
             var userName = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(userName))
             {
                 userName = "Хитрюга";
             }
-            Console.WriteLine($"Спасибо, {userName}, теперь мы можем начать викторину\n");
+            Console.WriteLine($"\nСпасибо, {userName}, теперь мы можем начать викторину");
             return userName;
         }
 
         private static (string Question, int Answer)[] GetRandomizedQuizData()//Создаём и перемешиваем вопросы
         {
+            Console.WriteLine("\nПоехали! Отвечайте на вопросы ТОЛЬКО цифрами:");
             var quizData = new (string Question, int Answer)[]
             {
-                ("Сколько будет 2 плюс 2, умноженное на 2?", 6),
+                ("Сколько будет 2 + 2 * 2?", 6),
                 ("Бревно нужно распилить на 10 частей. Сколько надо сделать распилов?", 9),
                 ("На двух руках 10 пальцев. Сколько пальцев на 5 руках?", 25),
                 ("Укол делают каждые полчаса. Сколько нужно минут для трех уколов?", 60),
@@ -56,12 +81,12 @@
         {
             return count switch
             {
-                0 => $"Простите, {userName}, но по результатам викторины, Вы - идиот, очень жаль!",
-                1 => $"{userName}, Ваш результат - кретин. В этот раз хотя бы один верный ответ.",
-                2 => $"{userName}, половина правильных ответов. Ваш результат - дурак.",
-                3 => $"Нормальный результат, {userName}, Вы - крепкий середняк.",
-                4 => $"{userName}, отличный результат! Ещё шаг до идеала. Вы - талант!",
-                5 => $"{userName}, все ответы верны! Вы - Гений! Поздравляю!"
+                0 => $"Простите, {userName}, но по результатам викторины, Вы - идиот, очень жаль!\n",
+                1 => $"{userName}, Ваш результат - кретин. В этот раз хотя бы один верный ответ.\n",
+                2 => $"{userName}, у Вас половина правильных ответов. Ваш результат - дурак.\n",
+                3 => $"Нормальный результат, {userName} - крепкий середняк.\n",
+                4 => $"Вы - талант, {userName}! Ещё шаг до идеала.\n",
+                5 => $"{userName}, все ответы верны! Вы - Гений! Поздравляю!\n"
             };
         }
     }
