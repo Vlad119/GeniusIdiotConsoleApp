@@ -10,7 +10,7 @@
             Console.WriteLine($"{userName}, результат викторины: Вы {GetQuizResult(correctAnswersCount, userName)}");
         }
 
-        private static string GetUserName()
+        private static string GetUserName()//Запрос имени пользователя
         {
             Console.WriteLine("Приветствую! Введите, пожалуйста, Ваше имя");
             var userName = Console.ReadLine();
@@ -22,7 +22,7 @@
             return userName;
         }
 
-        private static (string Question, int Answer)[] GetRandomizedQuizData()
+        private static (string Question, int Answer)[] GetRandomizedQuizData()//Создаём и перемешиваем вопросы
         {
             var quizData = new (string Question, int Answer)[]
             {
@@ -35,7 +35,7 @@
             return quizData.OrderBy(x => Guid.NewGuid()).ToArray();
         }
 
-        private static int RunQuiz((string Question, int Answer)[] quizData, string userName)
+        private static int RunQuiz((string Question, int Answer)[] quizData, string userName)//Запуск викторины
         {
             int correctAnswersCount = 0;
             foreach (var quiz in quizData)
@@ -55,7 +55,7 @@
             return correctAnswersCount;
         }
 
-        private static string GetQuizResult(int count, string userName)
+        private static string GetQuizResult(int count, string userName)//Проверка результата викторины
         {
             return count switch
             {
