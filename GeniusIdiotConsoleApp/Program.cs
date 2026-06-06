@@ -7,7 +7,7 @@
             var userName = GetUserName();
             var quizData = GetRandomizedQuizData();
             int correctAnswersCount = RunQuiz(quizData, userName);
-            Console.WriteLine($"{userName}, результат викторины: Вы {GetQuizResult(correctAnswersCount, userName)}");
+            Console.WriteLine($"Результат викторины:\n{GetQuizResult(correctAnswersCount, userName)}");
         }
 
         private static string GetUserName()//Запрос имени пользователя
@@ -61,7 +61,7 @@
                 2 => $"{userName}, половина правильных ответов. Ваш результат - дурак.",
                 3 => $"Нормальный результат, {userName}, Вы - крепкий середняк.",
                 4 => $"{userName}, отличный результат! Ещё шаг до идеала. Вы - талант!",
-                5 => $"{userName}, все ответы верны! Ты - Гений! Поздравляю!"
+                5 => $"{userName}, все ответы верны! Вы - Гений! Поздравляю!"
             };
         }
     }
