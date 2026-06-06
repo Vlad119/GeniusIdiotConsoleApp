@@ -4,13 +4,12 @@
     {
         static void Main(string[] args)
         {
-            var quizData = InitQuizData();
-            var randomQuizData = quizData.OrderBy(x => Guid.NewGuid()).ToArray();
-            int correctAnswersCount = RunQuiz(randomQuizData);
+            var quizData = GetRandomizedQuizData();
+            int correctAnswersCount = RunQuiz(quizData);
             Console.WriteLine($"Количество правильных ответов: {correctAnswersCount}");
         }
 
-        private static (string Question, int Answer)[] InitQuizData()
+        private static (string Question, int Answer)[] GetRandomizedQuizData()
         {
             var quizData = new (string Question, int Answer)[]
             {
@@ -20,7 +19,7 @@
                 ("Укол делают каждые полчаса. Сколько нужно минут для трех уколов?", 60),
                 ("5 свечей горело, 2 потухли. Сколько свечей осталось?", 2)
             };
-            return quizData;
+            return quizData.OrderBy(x => Guid.NewGuid()).ToArray();
         }
 
         private static int RunQuiz((string Question, int Answer)[] quizData)
