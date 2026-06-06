@@ -47,10 +47,7 @@
                 {
                     Console.Write($"{userName}, введите, пожалуйста, только число: ");
                 }
-                if (userAnswer == quiz.Answer)
-                {
-                    correctAnswersCount++;
-                }
+                if (userAnswer == quiz.Answer) correctAnswersCount++;
             }
             return correctAnswersCount;
         }
