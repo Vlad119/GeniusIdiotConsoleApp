@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             var quizData = InitQuizData();
-            int correctAnswersCount = RunQuiz(quizData);
+            var randomQuizData = quizData.OrderBy(x => Guid.NewGuid()).ToArray();
+            int correctAnswersCount = RunQuiz(randomQuizData);
             Console.WriteLine($"Количество правильных ответов: {correctAnswersCount}");
         }
 
