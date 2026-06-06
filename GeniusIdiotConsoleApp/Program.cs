@@ -4,9 +4,22 @@
     {
         static void Main(string[] args)
         {
+            var userName = GetUserName();
             var quizData = GetRandomizedQuizData();
-            int correctAnswersCount = RunQuiz(quizData);
-            Console.WriteLine($"Количество правильных ответов: {correctAnswersCount}");
+            int correctAnswersCount = RunQuiz(quizData, userName);
+            Console.WriteLine($"{userName}, результат викторины: Вы {GetQuizResult(correctAnswersCount, userName)}");
+        }
+
+        private static string GetUserName()
+        {
+            Console.WriteLine("Приветствую! Введите, пожалуйста, Ваше имя");
+            var userName = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                userName = "Хитрюга";
+            }
+            Console.WriteLine($"Спасибо, {userName}, теперь мы можем начать викторину\n");
+            return userName;
         }
 
         private static (string Question, int Answer)[] GetRandomizedQuizData()
@@ -22,17 +35,37 @@
             return quizData.OrderBy(x => Guid.NewGuid()).ToArray();
         }
 
-        private static int RunQuiz((string Question, int Answer)[] quizData)
+        private static int RunQuiz((string Question, int Answer)[] quizData, string userName)
         {
             int correctAnswersCount = 0;
             foreach (var quiz in quizData)
             {
                 Console.WriteLine(quiz.Question);
                 Console.Write("Ваш ответ: ");
-                int userAnswer = int.Parse(Console.ReadLine());
-                if (userAnswer == quiz.Answer) correctAnswersCount++;
+                int userAnswer;
+                while (!int.TryParse(Console.ReadLine(), out userAnswer))
+                {
+                    Console.Write($"{userName}, введите, пожалуйста, только число: ");
+                }
+                if (userAnswer == quiz.Answer)
+                {
+                    correctAnswersCount++;
+                }
             }
             return correctAnswersCount;
+        }
+
+        private static string GetQuizResult(int count, string userName)
+        {
+            return count switch
+            {
+                0 => $"Простите, {userName}, но по результатам викторины, Вы - идиот, очень жаль!",
+                1 => $"{userName}, Ваш результат - кретин. В этот раз хотя бы один верный ответ.",
+                2 => $"{userName}, половина правильных ответов. Ваш результат - дурак.",
+                3 => $"Нормальный результат, {userName}, Вы - крепкий середняк.",
+                4 => $"{userName}, отличный результат! Ещё шаг до идеала. Вы - талант!",
+                5 => $"{userName}, все ответы верны! Ты - Гений! Поздравляю!"
+            };
         }
     }
 }
