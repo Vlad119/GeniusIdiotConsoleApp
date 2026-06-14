@@ -9,14 +9,15 @@
             {
                 var quizData = GetRandomizedQuizData();
                 int correctAnswersCount = RunQuiz(quizData, userName);
-                ShowQuizResults(correctAnswersCount, userName);
+                ShowQuizResults(quizData, correctAnswersCount, userName);
             } while (AskToPlayAgain());
             Console.WriteLine($"\n{userName}, cпасибо за игру!");
         }
 
-        private static void ShowQuizResults(int correctAnswersCount, string userName)
+
+        private static void ShowQuizResults((string Question, int Answer)[] quizData, int correctAnswersCount, string userName)
         {
-            Console.WriteLine($"\nРезультат викторины:\n{GetQuizResult(correctAnswersCount, userName)}");
+            Console.WriteLine($"\nРезультат викторины:\n{GetQuizResult(quizData, correctAnswersCount, userName)}");
         }
 
         private static bool AskToPlayAgain()//Вопрос о новой игре
@@ -55,6 +56,11 @@
                 ("Бревно нужно распилить на 10 частей. Сколько надо сделать распилов?", 9),
                 ("На двух руках 10 пальцев. Сколько пальцев на 5 руках?", 25),
                 ("Укол делают каждые полчаса. Сколько нужно минут для трех уколов?", 60),
+                ("5 свечей горело, 2 потухли. Сколько свечей осталось?", 2),
+                 ("Сколько будет 2 + 2 * 2?", 6),
+                ("Бревно нужно распилить на 10 частей. Сколько надо сделать распилов?", 9),
+                ("На двух руках 10 пальцев. Сколько пальцев на 5 руках?", 25),
+                ("Укол делают каждые полчаса. Сколько нужно минут для трех уколов?", 60),
                 ("5 свечей горело, 2 потухли. Сколько свечей осталось?", 2)
             };
             return quizData.OrderBy(x => Guid.NewGuid()).ToArray();
@@ -77,9 +83,11 @@
             return correctAnswersCount;
         }
 
-        private static string GetQuizResult(int count, string userName)//Проверка результата викторины
+        private static string GetQuizResult((string Question, int Answer)[] quizData, int correctAnswersCount, string userName)//Проверка результата викторины
         {
-            return count switch
+            var diagnosisCount = 5;
+            var result = (correctAnswersCount * diagnosisCount) / quizData.Length;
+            return result switch
             {
                 0 => $"Простите, {userName}, но по результатам викторины, Вы - идиот, очень жаль!\n",
                 1 => $"{userName}, Ваш результат - кретин. В этот раз хотя бы один верный ответ.\n",
