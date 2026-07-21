@@ -361,3 +361,16 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Rider
+.idea/
+*.suo
+*.user
+*.sln.docstates
+
+# Build
+bin/
+obj/
+
+# Results
+results.json
