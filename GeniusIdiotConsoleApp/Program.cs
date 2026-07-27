@@ -102,16 +102,16 @@
         {
             // Запуск викторины
             int correctAnswersCount = 0;
-            foreach (var quiz in quizData)
+            foreach (var question in quizData)
             {
-                Console.WriteLine(quiz.QuizQuestion);
+                Console.WriteLine(question.QuizQuestion);
                 Console.Write("Ваш ответ: ");
                 int userAnswer;
                 while (!int.TryParse(Console.ReadLine(), out userAnswer))
                 {
                     Console.Write($"{userName}, введите, пожалуйста, только число: ");
                 }
-                if (quiz.CheckCorrectAnswer(userAnswer)) correctAnswersCount++;
+                if (question.CheckCorrectAnswer(userAnswer)) correctAnswersCount++;
             }
             return correctAnswersCount;
         }
@@ -125,7 +125,6 @@
                 Console.WriteLine("История пуста. Сыграйте хотя бы одну игру, чтобы увидеть результаты здесь!");
                 return;
             }
-
             Console.WriteLine($"{"Имя игрока",-25} | {"Правильных ответов",-18} | {"Диагноз",-30} | {"Дата",-20}");
             Console.WriteLine(new string('-', 105));
             foreach (var result in results)
@@ -133,7 +132,6 @@
                 Console.WriteLine(
                     $"{result.UserName,-25} | {result.CorrectAnswers,-18} | {result.Diagnosis,-30} | {result.Date,-20:dd.MM.yyyy HH:mm}");
             }
-
             Console.WriteLine(new string('-', 105));
             Console.WriteLine();
         }
