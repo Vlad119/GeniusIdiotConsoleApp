@@ -2,7 +2,7 @@
 
 namespace GeniusIdiotConsoleApp;
 
-public class  FileRepository<T>
+public class  FileDataManager<T>
 {
    public void Save(string path, List<T> data)
    {

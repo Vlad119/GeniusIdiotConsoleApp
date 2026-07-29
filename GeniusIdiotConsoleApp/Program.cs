@@ -4,27 +4,26 @@
     {
         static void Main(string[] args)
         {
-            var storage = new ResultStorage("results.json");
-            var allResults = storage.Load();
-            var questionsStorage = new QuestionsStorage();
-            GetApplicationMode(questionsStorage);
+            var resultManager = new ResultManager("results.json");
+            var allResults = resultManager.Load();
+            var questionManager = new QuestionManager();
+            GetApplicationMode(questionManager);
             var userName = GetUserName();
             do
             {
                 Console.WriteLine("\nПоехали! Отвечайте на вопросы ТОЛЬКО цифрами:");
-                var quizData = questionsStorage.ShuffleQuestions(questionsStorage.GetQuestions());
+                var quizData = questionManager.ShuffleQuestions(questionManager.GetQuestions());
                 int correctAnswersCount = RunQuiz(quizData, userName);
                 string shortDiagnosis = GetShortDiagnosis(quizData, correctAnswersCount);
                 ShowQuizResults(shortDiagnosis, userName);
                 var newResult = new GameResult(userName, correctAnswersCount, shortDiagnosis, DateTime.Now);
-                allResults.Add(newResult);
-                storage.Save(allResults);
+                resultManager.Add(newResult);
             } while (AskToPlayAgain());
             Console.WriteLine($"\n{userName}, спасибо за игру!");
             HistoryAsk(allResults);
         }
 
-        private static void GetApplicationMode(QuestionsStorage questionsStorage)
+        private static void GetApplicationMode(QuestionManager questionManager)
         {
             while (true)
             {
@@ -43,18 +42,15 @@
                 {
                     break; // Выходим из меню и идём играть!
                 }
-                if (choice == 2)
+                // 3. Внутренний цикл добавления вопросов
+                string addMore;
+                do
                 {
-                    // 3. Внутренний цикл добавления вопросов
-                    string addMore;
-                    do
-                    {
-                        questionsStorage.AddNewQuestion();
-                        Console.WriteLine("Хотите добавить ещё один вопрос? (да/нет)");
-                        addMore = Console.ReadLine()?.ToLower().Trim();
-                    } while (addMore == "да" || addMore == "д" || addMore == "yes" || addMore == "y");
-                    // Когда пользователь сказал "нет", мы просто возвращаемся в начало внешнего цикла (в меню)
-                }
+                    questionManager.AddNewQuestion();
+                    Console.WriteLine("Хотите добавить ещё один вопрос? (да/нет)");
+                    addMore = Console.ReadLine()?.ToLower().Trim();
+                } while (addMore == "да" || addMore == "д" || addMore == "yes" || addMore == "y");
+                // Когда пользователь сказал "нет", мы просто возвращаемся в начало внешнего цикла (в меню)
             }
         }
 
@@ -70,7 +66,6 @@
                     DisplayHistoryTable(allResults);
                     return;
                 }
-
                 if (answer == "нет" || answer == "н" || answer == "no" || answer == "n") return;
                 Console.WriteLine("Я не понял ваш ответ. Пожалуйста, введите (да/нет) (yes/no).");
             }
@@ -149,7 +144,7 @@
                     // Если получилось (возвращает true) — выходим из цикла, у нас есть валидный userAnswer
                     if (int.TryParse(input, out userAnswer))
                     {
-                        break; 
+                        break;
                     }
                     // Если не получилось (ввели буквы, спецсимволы или просто нажали Enter) — просим снова
                     Console.Write($"{userName}, введите, пожалуйста, только число: ");
@@ -172,7 +167,6 @@
                 Console.WriteLine("История пуста. Сыграйте хотя бы одну игру, чтобы увидеть результаты здесь!");
                 return;
             }
-
             Console.WriteLine($"{"Имя игрока",-25} | {"Правильных ответов",-18} | {"Диагноз",-30} | {"Дата",-20}");
             Console.WriteLine(new string('-', 105));
             foreach (var result in results)
@@ -180,7 +174,6 @@
                 Console.WriteLine(
                     $"{result.UserName,-25} | {result.CorrectAnswers,-18} | {result.Diagnosis,-30} | {result.Date,-20:dd.MM.yyyy HH:mm}");
             }
-
             Console.WriteLine(new string('-', 105));
             Console.WriteLine();
         }

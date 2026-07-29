@@ -1,11 +1,11 @@
 ﻿namespace GeniusIdiotConsoleApp;
 
-public class QuestionsStorage
+public class QuestionManager
 {
-    private readonly FileRepository<Question> _repository = new();
+    private readonly FileDataManager<Question> dataManager = new();
     private readonly string path = "questions.json";
 
-    public List<Question> GetQuestions() => _repository.Load(path);
+    public List<Question> GetQuestions() => dataManager.Load(path);
 
     public List<Question> ShuffleQuestions(List<Question> questions) => questions.OrderBy(x => Guid.NewGuid()).ToList();
 
@@ -30,7 +30,7 @@ public class QuestionsStorage
             }
         } while (!isValid);
         var newQuestion = new Question(question, answer);
-        var updatedList = _repository.Add(path, newQuestion);
+        var updatedList = dataManager.Add(path, newQuestion);
         Console.WriteLine($"Вопрос успешно добавлен! Теперь в базе {updatedList.Count} вопросов.");
     }
 }
