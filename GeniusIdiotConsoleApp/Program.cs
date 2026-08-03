@@ -1,4 +1,7 @@
-﻿namespace GeniusIdiotConsoleApp
+﻿using System;
+using System.Collections.Generic;
+
+namespace GeniusIdiotConsoleApp
 {
     internal class Program
     {
@@ -13,6 +16,11 @@
             {
                 Console.WriteLine("\nПоехали! Отвечайте на вопросы ТОЛЬКО цифрами:");
                 var quizData = questionManager.ShuffleQuestions(questionManager.GetQuestions());
+                if (quizData.Count == 0)
+                {
+                    Console.WriteLine("Вопросы закончились! Добавьте новые вопросы в главном меню.");
+                    break;
+                }
                 int correctAnswersCount = RunQuiz(quizData, userName);
                 string shortDiagnosis = GetShortDiagnosis(quizData, correctAnswersCount);
                 ShowQuizResults(shortDiagnosis, userName);
@@ -30,33 +38,37 @@
                 Console.WriteLine("\n=== Главное меню ===");
                 Console.WriteLine("1. Начать игру");
                 Console.WriteLine("2. Добавить новый вопрос");
+                Console.WriteLine("3. Удалить вопрос");
                 Console.Write("Ваш выбор: ");
-                // Валидация выбора (1 или 2)
                 int choice;
-                while (!int.TryParse(Console.ReadLine(), out choice) || (choice != 1 && choice != 2))
+                while (!int.TryParse(Console.ReadLine(), out choice) || (choice != 1 && choice != 2 && choice != 3))
                 {
-                    Console.WriteLine("Пожалуйста, введите 1 или 2.");
+                    Console.WriteLine("Пожалуйста, введите 1, 2 или 3.");
                     Console.Write("Ваш выбор: ");
                 }
                 if (choice == 1)
                 {
                     break; // Выходим из меню и идём играть!
                 }
-                // 3. Внутренний цикл добавления вопросов
-                string addMore;
-                do
+                if (choice == 2)
                 {
-                    questionManager.AddNewQuestion();
-                    Console.WriteLine("Хотите добавить ещё один вопрос? (да/нет)");
-                    addMore = Console.ReadLine()?.ToLower().Trim();
-                } while (addMore == "да" || addMore == "д" || addMore == "yes" || addMore == "y");
-                // Когда пользователь сказал "нет", мы просто возвращаемся в начало внешнего цикла (в меню)
+                    string addMore;
+                    do
+                    {
+                        questionManager.AddNewQuestion();
+                        Console.WriteLine("Хотите добавить ещё один вопрос? (да/нет)");
+                        addMore = Console.ReadLine()?.ToLower().Trim();
+                    } while (addMore == "да" || addMore == "д" || addMore == "yes" || addMore == "y");
+                }
+                if (choice == 3)
+                {
+                    questionManager.DeleteQuestion();
+                }
             }
         }
 
         private static void HistoryAsk(List<GameResult> allResults)
         {
-            // Вопрос о просмотре истории игр
             Console.Write("Хотите посмотреть историю всех игр? (да/нет) (yes/no): ");
             while (true)
             {
@@ -73,7 +85,6 @@
 
         private static string GetShortDiagnosis(List<Question> quizData, int correctAnswersCount)
         {
-            // Вычисление короткого диагноза для сохранения
             const int MaxScore = 5;
             var result = (correctAnswersCount * MaxScore) / quizData.Count;
             return result switch
@@ -84,13 +95,12 @@
                 3 => "Крепкий середняк",
                 4 => "Талант",
                 5 => "Гений",
-                _ => $"Неизвестный результат"
+                _ => "Неизвестный результат"
             };
         }
 
         private static void ShowQuizResults(string shortDiagnosis, string userName)
         {
-            // Формирование полной фразы для вывода в консоль на основе короткого диагноза
             string fullMessage = shortDiagnosis switch
             {
                 "Идиот" => $"Простите, {userName}, но по результатам викторины, Вы - {shortDiagnosis}, очень жаль!",
@@ -99,14 +109,13 @@
                 "Крепкий середняк" => $"Нормальный результат, {userName} - {shortDiagnosis}.",
                 "Талант" => $"Вы - {shortDiagnosis}, {userName}! Ещё шаг до идеала.",
                 "Гений" => $"{userName}, все ответы верны! Вы - {shortDiagnosis}! Поздравляю!",
-                _ => $"Неизвестный результат"
+                _ => "Неизвестный результат"
             };
             Console.WriteLine($"\nРезультат викторины:\n{fullMessage}");
         }
 
         private static bool AskToPlayAgain()
         {
-            // Вопрос о новой игре
             while (true)
             {
                 Console.WriteLine("\nВы желаете сыграть ещё раз? (да/нет) (yes/no)");
@@ -120,7 +129,6 @@
 
         private static string GetUserName()
         {
-            // Запрос имени пользователя
             Console.WriteLine("Приветствую! Введите, пожалуйста, Ваше имя");
             Console.Write("Меня зовут: ");
             var userName = Console.ReadLine();
@@ -140,16 +148,12 @@
                 while (true)
                 {
                     string input = Console.ReadLine();
-                    // Пытаемся преобразовать ввод в число. 
-                    // Если получилось (возвращает true) — выходим из цикла, у нас есть валидный userAnswer
                     if (int.TryParse(input, out userAnswer))
                     {
                         break;
                     }
-                    // Если не получилось (ввели буквы, спецсимволы или просто нажали Enter) — просим снова
                     Console.Write($"{userName}, введите, пожалуйста, только число: ");
                 }
-                // К этому моменту мы гарантированно имеем корректное число в userAnswer
                 if (question.CheckCorrectAnswer(userAnswer))
                 {
                     correctAnswersCount++;
@@ -160,7 +164,6 @@
 
         private static void DisplayHistoryTable(List<GameResult> results)
         {
-            // Отображение результатов викторины
             Console.WriteLine("\n=== История результатов ===");
             if (results == null || results.Count == 0)
             {
