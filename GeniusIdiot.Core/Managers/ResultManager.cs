@@ -1,4 +1,6 @@
-﻿namespace GeniusIdiotConsoleApp;
+﻿using GeniusIdiot.Core.Models;
+
+namespace GeniusIdiot.Core.Managers;
 
 public class ResultManager
 {

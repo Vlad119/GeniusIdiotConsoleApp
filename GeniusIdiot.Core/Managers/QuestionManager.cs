@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using GeniusIdiot.Core.Models;
 
-namespace GeniusIdiotConsoleApp;
+namespace GeniusIdiot.Core.Managers;
 
 public class QuestionManager
 {
