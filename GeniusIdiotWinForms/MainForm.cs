@@ -24,9 +24,12 @@ namespace GeniusIdiotWinForms
             }
             var shuffledQuestions = questionManager.ShuffleQuestions(questions);
 
+            var nameForm = new NameForm();
+            nameForm.ShowDialog();
+
             // Создаём и открываем форму викторины
-            var quizForm = new QuizForm(shuffledQuestions);
-            quizForm.ShowDialog();
+            //var quizForm = new QuizForm(shuffledQuestions);
+            //quizForm.ShowDialog();
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e)

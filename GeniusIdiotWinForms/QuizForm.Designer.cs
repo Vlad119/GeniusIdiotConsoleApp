@@ -58,6 +58,7 @@
             btnOne.TabIndex = 3;
             btnOne.Text = "1";
             btnOne.UseVisualStyleBackColor = false;
+            btnOne.Click += DigitButton_Click;
             // 
             // btnTwo
             // 
@@ -70,6 +71,7 @@
             btnTwo.TabIndex = 4;
             btnTwo.Text = "2";
             btnTwo.UseVisualStyleBackColor = false;
+            btnTwo.Click += DigitButton_Click;
             // 
             // btnThree
             // 
@@ -82,6 +84,7 @@
             btnThree.TabIndex = 5;
             btnThree.Text = "3";
             btnThree.UseVisualStyleBackColor = false;
+            btnThree.Click += DigitButton_Click;
             // 
             // btnFour
             // 
@@ -94,6 +97,7 @@
             btnFour.TabIndex = 6;
             btnFour.Text = "4";
             btnFour.UseVisualStyleBackColor = false;
+            btnFour.Click += DigitButton_Click;
             // 
             // btnFive
             // 
@@ -106,6 +110,7 @@
             btnFive.TabIndex = 7;
             btnFive.Text = "5";
             btnFive.UseVisualStyleBackColor = false;
+            btnFive.Click += DigitButton_Click;
             // 
             // btnSix
             // 
@@ -118,6 +123,7 @@
             btnSix.TabIndex = 8;
             btnSix.Text = "6";
             btnSix.UseVisualStyleBackColor = false;
+            btnSix.Click += DigitButton_Click;
             // 
             // btnSeven
             // 
@@ -130,6 +136,7 @@
             btnSeven.TabIndex = 9;
             btnSeven.Text = "7";
             btnSeven.UseVisualStyleBackColor = false;
+            btnSeven.Click += DigitButton_Click;
             // 
             // btnEight
             // 
@@ -142,6 +149,7 @@
             btnEight.TabIndex = 10;
             btnEight.Text = "8";
             btnEight.UseVisualStyleBackColor = false;
+            btnEight.Click += DigitButton_Click;
             // 
             // btnNine
             // 
@@ -154,6 +162,7 @@
             btnNine.TabIndex = 11;
             btnNine.Text = "9";
             btnNine.UseVisualStyleBackColor = false;
+            btnNine.Click += DigitButton_Click;
             // 
             // btnZero
             // 
@@ -166,6 +175,7 @@
             btnZero.TabIndex = 12;
             btnZero.Text = "0";
             btnZero.UseVisualStyleBackColor = false;
+            btnZero.Click += DigitButton_Click;
             // 
             // btnDeleteOne
             // 
@@ -178,6 +188,7 @@
             btnDeleteOne.TabIndex = 13;
             btnDeleteOne.Text = "<";
             btnDeleteOne.UseVisualStyleBackColor = false;
+            btnDeleteOne.Click += btnBackspace_Click;
             // 
             // btnClearAll
             // 
@@ -190,6 +201,7 @@
             btnClearAll.TabIndex = 14;
             btnClearAll.Text = "AC";
             btnClearAll.UseVisualStyleBackColor = false;
+            btnClearAll.Click += btnAC_Click;
             // 
             // btnNextQuestion
             // 
@@ -202,6 +214,7 @@
             btnNextQuestion.TabIndex = 15;
             btnNextQuestion.Text = "Далее";
             btnNextQuestion.UseVisualStyleBackColor = false;
+            btnNextQuestion.Click += btnNextQuestion_Click;
             // 
             // quizQuestionTxtBox
             // 
@@ -212,7 +225,7 @@
             quizQuestionTxtBox.Name = "quizQuestionTxtBox";
             quizQuestionTxtBox.Size = new Size(1060, 311);
             quizQuestionTxtBox.TabIndex = 17;
-            quizQuestionTxtBox.Text = "Вопрос такой-то, назовите то-то, что-то, где-то там";
+            quizQuestionTxtBox.Text = "";
             // 
             // progressBar1
             // 
@@ -232,7 +245,6 @@
             answerLabel.Name = "answerLabel";
             answerLabel.Size = new Size(150, 100);
             answerLabel.TabIndex = 21;
-            answerLabel.Text = "60";
             answerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label
@@ -245,7 +257,6 @@
             label.TabIndex = 22;
             label.Text = "Ваш ответ :";
             label.TextAlign = ContentAlignment.MiddleCenter;
-            label.Click += label_Click;
             // 
             // QuizForm
             // 
@@ -270,6 +281,7 @@
             Controls.Add(btnThree);
             Controls.Add(btnTwo);
             Controls.Add(btnOne);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "QuizForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "QuizForm";

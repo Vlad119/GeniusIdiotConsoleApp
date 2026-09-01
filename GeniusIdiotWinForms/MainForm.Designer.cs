@@ -96,6 +96,7 @@
             Controls.Add(btnDeleteQuestion);
             Controls.Add(btnAddQuestion);
             Controls.Add(btnStartGame);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GeniusIdiotGame";
