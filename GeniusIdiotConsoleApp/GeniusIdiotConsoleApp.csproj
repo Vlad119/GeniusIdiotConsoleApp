@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GeniusIdiot.Core\GeniusIdiot.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="questions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

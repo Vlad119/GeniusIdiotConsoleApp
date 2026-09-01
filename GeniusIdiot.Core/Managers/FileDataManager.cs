@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace GeniusIdiotConsoleApp;
+namespace GeniusIdiot.Core.Managers;
 
 public class FileDataManager<T>
 {

@@ -1,4 +1,4 @@
-﻿namespace GeniusIdiotConsoleApp;
+﻿namespace GeniusIdiot.Core.Models;
 
 public record User
 {
