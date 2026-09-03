@@ -52,9 +52,10 @@
             btnOne.BackColor = Color.LightGoldenrodYellow;
             btnOne.Font = new Font("Arial", 19.875F);
             btnOne.ForeColor = SystemColors.ActiveCaptionText;
-            btnOne.Location = new Point(1086, 12);
+            btnOne.Location = new Point(835, 9);
+            btnOne.Margin = new Padding(2);
             btnOne.Name = "btnOne";
-            btnOne.Size = new Size(100, 100);
+            btnOne.Size = new Size(77, 78);
             btnOne.TabIndex = 3;
             btnOne.Text = "1";
             btnOne.UseVisualStyleBackColor = false;
@@ -65,9 +66,10 @@
             btnTwo.BackColor = Color.LightGoldenrodYellow;
             btnTwo.Font = new Font("Arial", 19.875F);
             btnTwo.ForeColor = SystemColors.ActiveCaptionText;
-            btnTwo.Location = new Point(1192, 12);
+            btnTwo.Location = new Point(917, 9);
+            btnTwo.Margin = new Padding(2);
             btnTwo.Name = "btnTwo";
-            btnTwo.Size = new Size(100, 100);
+            btnTwo.Size = new Size(77, 78);
             btnTwo.TabIndex = 4;
             btnTwo.Text = "2";
             btnTwo.UseVisualStyleBackColor = false;
@@ -78,9 +80,10 @@
             btnThree.BackColor = Color.LightGoldenrodYellow;
             btnThree.Font = new Font("Arial", 19.875F);
             btnThree.ForeColor = SystemColors.ActiveCaptionText;
-            btnThree.Location = new Point(1298, 12);
+            btnThree.Location = new Point(998, 9);
+            btnThree.Margin = new Padding(2);
             btnThree.Name = "btnThree";
-            btnThree.Size = new Size(100, 100);
+            btnThree.Size = new Size(77, 78);
             btnThree.TabIndex = 5;
             btnThree.Text = "3";
             btnThree.UseVisualStyleBackColor = false;
@@ -91,9 +94,10 @@
             btnFour.BackColor = Color.LightGoldenrodYellow;
             btnFour.Font = new Font("Arial", 19.875F);
             btnFour.ForeColor = SystemColors.ActiveCaptionText;
-            btnFour.Location = new Point(1086, 118);
+            btnFour.Location = new Point(835, 92);
+            btnFour.Margin = new Padding(2);
             btnFour.Name = "btnFour";
-            btnFour.Size = new Size(100, 100);
+            btnFour.Size = new Size(77, 78);
             btnFour.TabIndex = 6;
             btnFour.Text = "4";
             btnFour.UseVisualStyleBackColor = false;
@@ -104,9 +108,10 @@
             btnFive.BackColor = Color.LightGoldenrodYellow;
             btnFive.Font = new Font("Arial", 19.875F);
             btnFive.ForeColor = SystemColors.ActiveCaptionText;
-            btnFive.Location = new Point(1192, 118);
+            btnFive.Location = new Point(917, 92);
+            btnFive.Margin = new Padding(2);
             btnFive.Name = "btnFive";
-            btnFive.Size = new Size(100, 100);
+            btnFive.Size = new Size(77, 78);
             btnFive.TabIndex = 7;
             btnFive.Text = "5";
             btnFive.UseVisualStyleBackColor = false;
@@ -117,9 +122,10 @@
             btnSix.BackColor = Color.LightGoldenrodYellow;
             btnSix.Font = new Font("Arial", 19.875F);
             btnSix.ForeColor = SystemColors.ActiveCaptionText;
-            btnSix.Location = new Point(1298, 118);
+            btnSix.Location = new Point(998, 92);
+            btnSix.Margin = new Padding(2);
             btnSix.Name = "btnSix";
-            btnSix.Size = new Size(100, 100);
+            btnSix.Size = new Size(77, 78);
             btnSix.TabIndex = 8;
             btnSix.Text = "6";
             btnSix.UseVisualStyleBackColor = false;
@@ -130,9 +136,10 @@
             btnSeven.BackColor = Color.LightGoldenrodYellow;
             btnSeven.Font = new Font("Arial", 19.875F);
             btnSeven.ForeColor = SystemColors.ActiveCaptionText;
-            btnSeven.Location = new Point(1086, 224);
+            btnSeven.Location = new Point(835, 175);
+            btnSeven.Margin = new Padding(2);
             btnSeven.Name = "btnSeven";
-            btnSeven.Size = new Size(100, 100);
+            btnSeven.Size = new Size(77, 78);
             btnSeven.TabIndex = 9;
             btnSeven.Text = "7";
             btnSeven.UseVisualStyleBackColor = false;
@@ -143,9 +150,10 @@
             btnEight.BackColor = Color.LightGoldenrodYellow;
             btnEight.Font = new Font("Arial", 19.875F);
             btnEight.ForeColor = SystemColors.ActiveCaptionText;
-            btnEight.Location = new Point(1192, 224);
+            btnEight.Location = new Point(917, 175);
+            btnEight.Margin = new Padding(2);
             btnEight.Name = "btnEight";
-            btnEight.Size = new Size(100, 100);
+            btnEight.Size = new Size(77, 78);
             btnEight.TabIndex = 10;
             btnEight.Text = "8";
             btnEight.UseVisualStyleBackColor = false;
@@ -156,9 +164,10 @@
             btnNine.BackColor = Color.LightGoldenrodYellow;
             btnNine.Font = new Font("Arial", 19.875F);
             btnNine.ForeColor = SystemColors.ActiveCaptionText;
-            btnNine.Location = new Point(1298, 224);
+            btnNine.Location = new Point(998, 175);
+            btnNine.Margin = new Padding(2);
             btnNine.Name = "btnNine";
-            btnNine.Size = new Size(100, 100);
+            btnNine.Size = new Size(77, 78);
             btnNine.TabIndex = 11;
             btnNine.Text = "9";
             btnNine.UseVisualStyleBackColor = false;
@@ -169,9 +178,10 @@
             btnZero.BackColor = Color.LightGoldenrodYellow;
             btnZero.Font = new Font("Arial", 19.875F);
             btnZero.ForeColor = SystemColors.ActiveCaptionText;
-            btnZero.Location = new Point(1192, 330);
+            btnZero.Location = new Point(917, 258);
+            btnZero.Margin = new Padding(2);
             btnZero.Name = "btnZero";
-            btnZero.Size = new Size(100, 100);
+            btnZero.Size = new Size(77, 78);
             btnZero.TabIndex = 12;
             btnZero.Text = "0";
             btnZero.UseVisualStyleBackColor = false;
@@ -182,9 +192,10 @@
             btnDeleteOne.BackColor = Color.LightGoldenrodYellow;
             btnDeleteOne.Font = new Font("Arial", 19.875F);
             btnDeleteOne.ForeColor = SystemColors.ActiveCaptionText;
-            btnDeleteOne.Location = new Point(1298, 330);
+            btnDeleteOne.Location = new Point(998, 258);
+            btnDeleteOne.Margin = new Padding(2);
             btnDeleteOne.Name = "btnDeleteOne";
-            btnDeleteOne.Size = new Size(100, 100);
+            btnDeleteOne.Size = new Size(77, 78);
             btnDeleteOne.TabIndex = 13;
             btnDeleteOne.Text = "<";
             btnDeleteOne.UseVisualStyleBackColor = false;
@@ -195,9 +206,10 @@
             btnClearAll.BackColor = Color.LightGoldenrodYellow;
             btnClearAll.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnClearAll.ForeColor = SystemColors.ActiveCaptionText;
-            btnClearAll.Location = new Point(1086, 330);
+            btnClearAll.Location = new Point(835, 258);
+            btnClearAll.Margin = new Padding(2);
             btnClearAll.Name = "btnClearAll";
-            btnClearAll.Size = new Size(100, 100);
+            btnClearAll.Size = new Size(77, 78);
             btnClearAll.TabIndex = 14;
             btnClearAll.Text = "AC";
             btnClearAll.UseVisualStyleBackColor = false;
@@ -208,9 +220,10 @@
             btnNextQuestion.BackColor = Color.LightGoldenrodYellow;
             btnNextQuestion.Font = new Font("Arial", 19.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnNextQuestion.ForeColor = SystemColors.ActiveCaptionText;
-            btnNextQuestion.Location = new Point(1086, 436);
+            btnNextQuestion.Location = new Point(835, 341);
+            btnNextQuestion.Margin = new Padding(2);
             btnNextQuestion.Name = "btnNextQuestion";
-            btnNextQuestion.Size = new Size(312, 100);
+            btnNextQuestion.Size = new Size(240, 78);
             btnNextQuestion.TabIndex = 15;
             btnNextQuestion.Text = "Далее";
             btnNextQuestion.UseVisualStyleBackColor = false;
@@ -221,18 +234,20 @@
             quizQuestionTxtBox.BackColor = Color.LightGoldenrodYellow;
             quizQuestionTxtBox.Font = new Font("Segoe UI", 19.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
             quizQuestionTxtBox.ForeColor = SystemColors.ActiveCaptionText;
-            quizQuestionTxtBox.Location = new Point(12, 12);
+            quizQuestionTxtBox.Location = new Point(9, 9);
+            quizQuestionTxtBox.Margin = new Padding(2);
             quizQuestionTxtBox.Name = "quizQuestionTxtBox";
-            quizQuestionTxtBox.Size = new Size(1060, 311);
+            quizQuestionTxtBox.Size = new Size(816, 244);
             quizQuestionTxtBox.TabIndex = 17;
             quizQuestionTxtBox.Text = "";
             // 
             // progressBar1
             // 
             progressBar1.ForeColor = Color.LightGoldenrodYellow;
-            progressBar1.Location = new Point(12, 545);
+            progressBar1.Location = new Point(9, 426);
+            progressBar1.Margin = new Padding(2);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(1386, 22);
+            progressBar1.Size = new Size(1066, 17);
             progressBar1.Step = 1;
             progressBar1.TabIndex = 20;
             // 
@@ -241,9 +256,10 @@
             answerLabel.BackColor = Color.LightGoldenrodYellow;
             answerLabel.BorderStyle = BorderStyle.Fixed3D;
             answerLabel.Font = new Font("Segoe UI", 20F);
-            answerLabel.Location = new Point(330, 432);
+            answerLabel.Location = new Point(254, 338);
+            answerLabel.Margin = new Padding(2, 0, 2, 0);
             answerLabel.Name = "answerLabel";
-            answerLabel.Size = new Size(150, 100);
+            answerLabel.Size = new Size(115, 78);
             answerLabel.TabIndex = 21;
             answerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -251,19 +267,21 @@
             // 
             label.BackColor = Color.DarkKhaki;
             label.Font = new Font("Segoe UI", 20F);
-            label.Location = new Point(12, 432);
+            label.Location = new Point(9, 338);
+            label.Margin = new Padding(2, 0, 2, 0);
             label.Name = "label";
-            label.Size = new Size(312, 100);
+            label.Size = new Size(240, 78);
             label.TabIndex = 22;
             label.Text = "Ваш ответ :";
             label.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // QuizForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSize = true;
             BackColor = Color.DarkKhaki;
-            ClientSize = new Size(1414, 579);
+            ClientSize = new Size(1088, 452);
             Controls.Add(label);
             Controls.Add(answerLabel);
             Controls.Add(progressBar1);
@@ -282,6 +300,7 @@
             Controls.Add(btnTwo);
             Controls.Add(btnOne);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(2);
             Name = "QuizForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "QuizForm";
